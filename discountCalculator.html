@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurrency konvertor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="index.html">Paise Planner</a></li>
+          <li><a href="convertor.html">Kurrency Convertor</a></li>
+          <li><a href="discountCalculator.html">Discount Calculator</a></li>
+          <li><a href="billBatawara.html">Bill Batawara</a></li>
+        </ul>
+      </nav>
+      <hgroup>
+        <h1>Discount Deducer</h1>
+        <p>Let's see how much you save</p>
+      </hgroup>
+    </header>
+    <main class="container">
+      <section>
+        <div>
+          <input
+            type="number"
+            placeholder="Enter Total Amount"
+            id="totalAmount"
+            required
+          />
+          <input
+            type="number"
+            placeholder="Enter Discount percentage"
+            id="totalDiscountPercentage"
+          />
+          <button id="calculateBtn" type="button">Calculate Discount</button>
+        </div>
+      </section>
+      <section>
+        <p id="result"></p>
+      </section>
+    </main>
+    <footer class="container neog-footer">
+      <small>
+        go from zero to hero at full stack development with
+        <a href="https://neog.camp">neog.camp</a>
+      </small>
+    </footer>
+    <script>
+      // calculate Discount Button
+      const calculateBtn = document.getElementById("calculateBtn");
+      console.log("button click");
+
+      // how to calculate Discount  goes
+      function calculateDiscount(total, discountPercentage) {
+        const savedAmount = (total * discountPercentage) / 100;
+        const finalPrice = total - savedAmount;
+        return {
+          savedAmount: savedAmount.toFixed(2),
+          finalPrice: finalPrice.toFixed(2),
+        };
+      }
+
+      // when the user click button grab the input and compute
+      function discountProcess() {
+        const totalAmountElement = document.getElementById("totalAmount");
+        const discountPercentageElement = document.getElementById(
+          "totalDiscountPercentage"
+        );
+        const resultElement = document.getElementById("result");
+
+        const total = totalAmountElement.value;
+        const discount = discountPercentageElement.value;
+        const result = calculateDiscount(total, discount);
+        resultElement.innerText =
+          "You saved Rs " +
+          result.savedAmount +
+          " Final price is " +
+          result.finalPrice;
+      }
+      calculateBtn.addEventListener("click", discountProcess);
+    </script>
+  </body>
+</html>

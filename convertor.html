@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kurrency konvertor</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="index.html">Paise Planner</a></li>
+          <li><a href="convertor.html">Kurrency Convertor</a></li>
+          <li><a href="discountCalculator.html">Discount Calculator</a></li>
+          <li><a href="billBatawara.html">Bill Batawara</a></li>
+        </ul>
+      </nav>
+      <hgroup>
+        <h1>₹Kurrency Konvertor</h1>
+        <p>plan your savings better</p>
+      </hgroup>
+    </header>
+    <main class="container">
+      <section>
+        <div>
+          <input
+            type="number"
+            placeholder="Enter amount in Us dollar"
+            id="usdAmount"
+            required
+          />
+          <button id="convertBtn" type="button">Convert to INR</button>
+        </div>
+      </section>
+      <section>
+        <p id="result"></p>
+      </section>
+    </main>
+    <footer class="container neog-footer">
+      <small>
+        go from zero to hero at full stack development with
+        <a href="https://neog.camp">neog.camp</a>
+      </small>
+    </footer>
+    <script>
+      function convertUsdToInr(usd) {
+        const conversionRate = 82.5;
+        const inr = usd * conversionRate;
+        return inr.toFixed(2);
+      }
+
+      function calculateConversion() {
+        const usdInputElement = document.getElementById("usdAmount");
+        const resultElement = document.getElementById("result");
+        const usdValue = usdInputElement.value;
+        const inrValue = convertUsdToInr(usdValue);
+
+        resultElement.innerText = usdValue + " USD equals INR" + inrValue;
+      }
+      const convertBtn = document.getElementById("convertBtn");
+      convertBtn.addEventListener("click", calculateConversion);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bill Batawara</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <nav>
+        <ul>
+          <li><a href="index.html">Paise Planner</a></li>
+          <li><a href="convertor.html">Kurrency Convertor</a></li>
+          <li><a href="discountCalculator.html">Discount Calculator</a></li>
+          <li><a href="billBatawara.html">Bill Batawara</a></li>
+        </ul>
+      </nav>
+      <hgroup>
+        <h1>Bill Batawara</h1>
+      </hgroup>
+    </header>
+    <main class="container">
+      <section>
+        <div>
+          <input type="number" placeholder="Total Bill" id="total" required />
+          <input
+            type="number"
+            placeholder="Number of People"
+            id="people"
+            required
+          />
+          <button id="splitBtn">Split The Bill</button>
+        </div>
+      </section>
+      <section>
+        <p id="result"></p>
+      </section>
+    </main>
+    <footer class="container neog-footer">
+      <small>
+        go from zero to hero at full stack development with
+        <a href="https://neog.camp">neog.camp</a>
+      </small>
+    </footer>
+    <script>
+      // add the button
+      const splitButton = document.getElementById("splitBtn");
+
+      // Batawara formula goes here
+      function calculateSplit(totalBill, numOfPeople) {
+        const payEachPerson = totalBill / numOfPeople;
+        return payEachPerson;
+      }
+
+      //grab  the input from user and compute
+      function splitProcessing() {
+        const totalInputElement = document.getElementById("total");
+        const totalNumOfPeople = document.getElementById("people");
+        const resultElement = document.getElementById("result");
+        const total = totalInputElement.value;
+        const people = totalNumOfPeople.value;
+        const result = calculateSplit(total, people);
+        resultElement.innerText = "Each person should pay Rs." + result;
+      }
+      // add event listener
+      splitButton.addEventListener("click", splitProcessing);
+    </script>
+  </body>
+</html>
