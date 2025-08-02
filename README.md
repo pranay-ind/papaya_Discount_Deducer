@@ -12,8 +12,12 @@ Created with CodeSandbox
 ## how does it work 
 1.Enter the discount aount and discount percentage in the given field and click on blue button .
 <img width="380" height="282" alt="{A2E275CE-A434-425A-8613-290786949B3B}" src="https://github.com/user-attachments/assets/5689f203-5c2d-4f50-804c-b5a4c6406666" />
+
+
 2. After clicking on the button it shows the final price and amount saved.
 <img width="618" height="315" alt="{82C4B4F6-6C6F-49FB-BC43-A7338E1D3C89}" src="https://github.com/user-attachments/assets/74329a82-b5b1-4076-a5cb-11d64980c57e" />
+
+
 3. Get started with my app to generate your own discount amount . 
 
 
